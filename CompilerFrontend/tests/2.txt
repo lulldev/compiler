@@ -1,0 +1,5 @@
+{
+intt i;
+float j;
+i = 1;
+}

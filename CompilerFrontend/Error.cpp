@@ -1,6 +1,6 @@
-#include "Error.h"
-#include "Cmd.h"
 #include <stdio.h>
+#include "Error.h"
+#include "ConsoleCtrl.h"
 #include "Lexer.h"
 
 Error::Error(const char *description)
@@ -24,7 +24,7 @@ void error(const char *fmt, ...)
     va_end(ap);
     
     char *ret;
-    asprintf(&ret, "[Error]%s:Line %d: %s\n", Cmd::ifile, Lexer::line, str);
+    asprintf(&ret, "[Error]%s:Line %d: %s\n", ConsoleCtrl::ifile, Lexer::line, str);
     
     throw Error(ret);
 }
@@ -39,7 +39,7 @@ void warnning(const char *fmt, ...)
     
     va_end(ap);
     
-    fprintf(stderr, "[Warnning]%s:Line %d: %s\n", Cmd::ifile, Lexer::line, str);
+    fprintf(stderr, "[Warning]%s:Line %d: %s\n", ConsoleCtrl::ifile, Lexer::line, str);
 }
 
 char *fmtstr(const char *fmt, ...)

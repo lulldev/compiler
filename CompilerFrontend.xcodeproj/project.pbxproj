@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D318A6D21C1998E006A5701 /* ConsoleCtrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D318A6B21C1998E006A5701 /* ConsoleCtrl.cpp */; };
 		ACCD20F1189A881B007C00D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD20F0189A881B007C00D3 /* main.cpp */; };
 		ACCD20FB189A8D8B007C00D3 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD20F9189A8D8B007C00D3 /* Parser.cpp */; };
 		ACCD20FE189A8DCF007C00D3 /* Lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD20FC189A8DCF007C00D3 /* Lexer.cpp */; };
-		ACCD2101189B5560007C00D3 /* Cmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD20FF189B5560007C00D3 /* Cmd.cpp */; };
 		ACCD2107189BBB9B007C00D3 /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD2105189BBB9B007C00D3 /* Error.cpp */; };
 		ACCD210A189BD118007C00D3 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD2108189BD118007C00D3 /* Node.cpp */; };
 		ACCD210D189BE40D007C00D3 /* Token.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCD210B189BE40D007C00D3 /* Token.cpp */; };
@@ -30,14 +30,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7D318A6921C19829006A5701 /* 1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
+		7D318A6A21C19848006A5701 /* 2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
+		7D318A6B21C1998E006A5701 /* ConsoleCtrl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleCtrl.cpp; sourceTree = "<group>"; };
+		7D318A6C21C1998E006A5701 /* ConsoleCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleCtrl.h; sourceTree = "<group>"; };
 		ACCD20ED189A881B007C00D3 /* CompilerFrontend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CompilerFrontend; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCD20F0189A881B007C00D3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ACCD20F9189A8D8B007C00D3 /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
 		ACCD20FA189A8D8B007C00D3 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		ACCD20FC189A8DCF007C00D3 /* Lexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lexer.cpp; sourceTree = "<group>"; };
 		ACCD20FD189A8DCF007C00D3 /* Lexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lexer.h; sourceTree = "<group>"; };
-		ACCD20FF189B5560007C00D3 /* Cmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cmd.cpp; sourceTree = "<group>"; };
-		ACCD2100189B5560007C00D3 /* Cmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cmd.h; sourceTree = "<group>"; };
 		ACCD2105189BBB9B007C00D3 /* Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Error.cpp; sourceTree = "<group>"; };
 		ACCD2106189BBB9B007C00D3 /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
 		ACCD2108189BD118007C00D3 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
@@ -59,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D318A6721C19741006A5701 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				7D318A6921C19829006A5701 /* 1.txt */,
+				7D318A6A21C19848006A5701 /* 2.txt */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
 		ACCD20E4189A881B007C00D3 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +89,7 @@
 		ACCD20EF189A881B007C00D3 /* CompilerFrontend */ = {
 			isa = PBXGroup;
 			children = (
+				7D318A6721C19741006A5701 /* tests */,
 				ACCD20F0189A881B007C00D3 /* main.cpp */,
 				ACCD20FA189A8D8B007C00D3 /* Parser.h */,
 				ACCD20F9189A8D8B007C00D3 /* Parser.cpp */,
@@ -89,10 +101,10 @@
 				ACCD2108189BD118007C00D3 /* Node.cpp */,
 				ACCD210F189C9141007C00D3 /* Symbol.h */,
 				ACCD210E189C9141007C00D3 /* Symbol.cpp */,
-				ACCD2100189B5560007C00D3 /* Cmd.h */,
-				ACCD20FF189B5560007C00D3 /* Cmd.cpp */,
 				ACCD2106189BBB9B007C00D3 /* Error.h */,
 				ACCD2105189BBB9B007C00D3 /* Error.cpp */,
+				7D318A6B21C1998E006A5701 /* ConsoleCtrl.cpp */,
+				7D318A6C21C1998E006A5701 /* ConsoleCtrl.h */,
 			);
 			path = CompilerFrontend;
 			sourceTree = "<group>";
@@ -148,7 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACCD2101189B5560007C00D3 /* Cmd.cpp in Sources */,
+				7D318A6D21C1998E006A5701 /* ConsoleCtrl.cpp in Sources */,
 				ACCD2110189C9141007C00D3 /* Symbol.cpp in Sources */,
 				ACCD2107189BBB9B007C00D3 /* Error.cpp in Sources */,
 				ACCD20FE189A8DCF007C00D3 /* Lexer.cpp in Sources */,

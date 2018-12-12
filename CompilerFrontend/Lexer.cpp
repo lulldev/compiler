@@ -1,5 +1,5 @@
 #include "Lexer.h"
-#include "Cmd.h"
+#include "ConsoleCtrl.h"
 #include "Error.h"
 
 using std::string;
@@ -11,9 +11,9 @@ int Lexer::line = 0;
 
 Lexer::Lexer()
 {
-    ifs = new ifstream(Cmd::ifile);
+    ifs = new ifstream(ConsoleCtrl::ifile);
     if (!ifs->good()) {
-        throw Error(fmtstr("Cannot open file \"%s\"", Cmd::ifile));
+        throw Error(fmtstr("Cannot open file \"%s\"", ConsoleCtrl::ifile));
     }
     
     reserve(new Word("if",      Tag::IF));
