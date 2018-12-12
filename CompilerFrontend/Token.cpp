@@ -1,5 +1,5 @@
-#include "Token.h"
 #include <stdio.h>
+#include "Token.h"
 #include "Error.h"
 
 Token::Token(int t)

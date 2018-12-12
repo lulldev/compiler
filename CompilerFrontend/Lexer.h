@@ -1,8 +1,6 @@
-#ifndef __FrontEnd__Lexer__
-#define __FrontEnd__Lexer__
-
 #include <map>
 #include <fstream>
+
 #include "Token.h"
 
 struct cmp_cls {
@@ -32,5 +30,3 @@ public:
     Token *gettok();
     
 };
-
-#endif /* defined(__FrontEnd__Lexer__) */

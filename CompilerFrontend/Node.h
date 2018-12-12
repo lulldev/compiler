@@ -1,6 +1,3 @@
-#ifndef __FrontEnd__Node__
-#define __FrontEnd__Node__
-
 class Word;
 class Type;
 class Token;
@@ -325,5 +322,3 @@ public:
     
     void gen(int b, int a);
 };
-
-#endif /* defined(__FrontEnd__Node__) */

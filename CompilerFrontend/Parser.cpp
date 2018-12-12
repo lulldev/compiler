@@ -1,7 +1,7 @@
+#include <stdio.h>
 #include "Parser.h"
 #include "Lexer.h"
 #include "Error.h"
-#include <stdio.h>
 #include "ConsoleCtrl.h"
 #include "Node.h"
 #include "Symbol.h"

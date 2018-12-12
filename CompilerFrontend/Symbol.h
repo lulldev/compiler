@@ -1,6 +1,3 @@
-#ifndef __FrontEnd__Symbol__
-#define __FrontEnd__Symbol__
-
 #include <map>
 
 class Token;
@@ -20,5 +17,3 @@ public:
     void put(Token *t, Id *i);
     Id *get(Token *t);
 };
-
-#endif /* defined(__FrontEnd__Symbol__) */

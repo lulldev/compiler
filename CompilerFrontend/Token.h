@@ -1,22 +1,33 @@
-#ifndef __FrontEnd__Token__
-#define __FrontEnd__Token__
-
 class Tag {
 public:
     enum {
-        AND = 256, BASIC, BREAK, DO, ELSE,
-        EQ, FALSE, GE, ID, IF,
-        INDEX, LE, MINUS, NE, NUM,
-        OR, REAL, TEMP, TRUE, WHILE,
+        AND = 256,
+        BASIC,
+        BREAK,
+        DO,
+        ELSE,
+        EQ,
+        FALSE,
+        GE,
+        ID,
+        IF,
+        INDEX,
+        LE,
+        MINUS,
+        NE,
+        NUM,
+        OR,
+        REAL,
+        TEMP,
+        TRUE,
+        WHILE
     };
 };
 
 class Token {
 public:
     int tag;
-    
     Token(int t);
-    
     virtual const char *toString();
 };
 
@@ -58,36 +69,25 @@ public:
 };
 
 class Array : public Type {
-    
 public:
     Type    *of;
     int     size;
-    
     Array(int sz, Type *p);
-    
     const char *toString();
 };
 
 class Num : public Token {
 public:
     int value;
-    
 public:
-    
     Num(int v);
-    
     const char *toString();
 };
 
 class Real : public Token {
 public:
     float value;
-    
 public:
-    
     Real(float v);
-    
     const char *toString();
 };
-
-#endif /* defined(__FrontEnd__Token__) */

@@ -1,6 +1,3 @@
-#ifndef __FrontEnd__Parser__
-#define __FrontEnd__Parser__
-
 class Lexer;
 class Token;
 class Stmt;
@@ -19,9 +16,7 @@ private:
     
     void    move();
     void    match(int t);
-    
-    // parse
-private:
+
     Stmt    *block();
     void    decls();
     Stmt    *stmts();
@@ -41,8 +36,5 @@ private:
     
 public:
     Parser(Lexer *l);
-    
-    void    program();
+    void program();
 };
-
-#endif /* defined(__FrontEnd__Parser__) */

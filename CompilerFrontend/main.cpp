@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "Parser.h"
 #include "Lexer.h"
 #include "Error.h"
@@ -23,7 +24,7 @@ int main(int argc, const char * argv[])
         if (e.what()) {
             std::cout << e.what() << std::endl;
         }
-    } 
+    }
     
     return ret;
 }
