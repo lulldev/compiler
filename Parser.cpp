@@ -9,7 +9,7 @@
 
 Parser::Parser(Lexer *l)
 {
-    top = NULL;
+    top = nullptr;
     used = 0;
     
     this->lexer = l;
@@ -208,7 +208,7 @@ Stmt *Parser::assign()
     
     match(Tag::ID);
     Id *id = top->get(t);
-    if (id == NULL) {
+    if (id == nullptr) {
         error("'%s' undeclared", t->toString());
     }
     
@@ -347,7 +347,7 @@ Expr *Parser::unary()
 
 Expr *Parser::factor()
 {
-    Expr *x = NULL;
+    Expr *x = nullptr;
     
     switch (look->tag) {
         case '(':
@@ -384,7 +384,7 @@ Expr *Parser::factor()
         case Tag::ID:
         {
             Id *id = top->get(look);
-            if (id == NULL) {
+            if (id == nullptr) {
                 error("'%s' undeclared", look->toString());
             }
             
