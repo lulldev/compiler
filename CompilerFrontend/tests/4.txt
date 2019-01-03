@@ -3,6 +3,6 @@ int i;
 float j;
 int a;
 if (i == 0) {
-  i = 1; a = 1;
+i = 1; a = 1;
 }
 }

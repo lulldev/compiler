@@ -16,6 +16,7 @@ int main(int argc, const char * argv[])
         Parser *parser = new Parser(lexer);
         
         parser->program();
+        // gen
         
     } catch (std::exception &e) {
         

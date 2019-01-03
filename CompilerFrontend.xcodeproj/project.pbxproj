@@ -34,6 +34,8 @@
 		7D318A6A21C19848006A5701 /* 2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
 		7D318A6B21C1998E006A5701 /* ConsoleCtrl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleCtrl.cpp; sourceTree = "<group>"; };
 		7D318A6C21C1998E006A5701 /* ConsoleCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleCtrl.h; sourceTree = "<group>"; };
+		7DD30BE021D2F15000FF7654 /* 3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3.txt; sourceTree = "<group>"; };
+		7DD30BE121D2F1E800FF7654 /* 4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4.txt; sourceTree = "<group>"; };
 		ACCD20ED189A881B007C00D3 /* CompilerFrontend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CompilerFrontend; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCD20F0189A881B007C00D3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ACCD20F9189A8D8B007C00D3 /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 			children = (
 				7D318A6921C19829006A5701 /* 1.txt */,
 				7D318A6A21C19848006A5701 /* 2.txt */,
+				7DD30BE021D2F15000FF7654 /* 3.txt */,
+				7DD30BE121D2F1E800FF7654 /* 4.txt */,
 			);
 			path = tests;
 			sourceTree = "<group>";

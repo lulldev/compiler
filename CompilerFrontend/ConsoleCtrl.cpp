@@ -1,6 +1,6 @@
-#include "ConsoleCtrl.h"
 #include <stdio.h>
 #include <string.h>
+#include "ConsoleCtrl.h"
 #include "Error.h"
 
 const char *ConsoleCtrl::ifile = NULL;

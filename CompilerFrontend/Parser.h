@@ -11,6 +11,7 @@ class Parser {
 private:
     Lexer   *lexer;
     Token   *look;
+    // AST *ast;
     Env     *top;
     int     used;
     

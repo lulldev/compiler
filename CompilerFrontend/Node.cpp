@@ -1,8 +1,8 @@
-#include "Node.h"
+#include <typeinfo>
 #include <stdio.h>
+#include "Node.h"
 #include "Token.h"
 #include "Error.h"
-#include <typeinfo>
 
 int Node::labels = 0;
 

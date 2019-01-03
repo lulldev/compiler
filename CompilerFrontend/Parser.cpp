@@ -39,6 +39,7 @@ void Parser::program()
     s->emitlabel(begin);
     s->gen(begin, after);
     s->emitlabel(after);
+    // return ast;
 }
 
 Stmt *Parser::block()
