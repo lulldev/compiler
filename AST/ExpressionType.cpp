@@ -1,8 +1,10 @@
 #include "ExpressionType.h"
+#include <unordered_map>
+#include <set>
 
 namespace
 {
-    const std::unordered_map<ExpressionType, std::unordered_set<ExpressionType>> gcAvailableCasts = {
+    const std::map<ExpressionType, std::set<ExpressionType>> gcAvailableCasts = {
         { ExpressionType::Int, { ExpressionType::Float, ExpressionType::Bool } },
         { ExpressionType::Float, { ExpressionType::Int, ExpressionType::Bool } },
         { ExpressionType::Bool, { ExpressionType::Int, ExpressionType::Float } }
@@ -34,7 +36,7 @@ bool Convertible(ExpressionType from, ExpressionType to)
         return false;
     }
     
-    const std::unordered_set<ExpressionType> & availableCasts = found->second;
+    const auto& availableCasts = found->second;
     return availableCasts.find(to) != availableCasts.end();
 }
 

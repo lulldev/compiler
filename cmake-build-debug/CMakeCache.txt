@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+AST_BINARY_DIR:STATIC=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/AST
+
+//Value Computed by CMake
+AST_SOURCE_DIR:STATIC=/Users/ivankalagin/Documents/GitHub/compiler/AST
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
 

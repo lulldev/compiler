@@ -82,6 +82,21 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/AST.cpp">
+			<Option target="Compiler"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/AST.h">
+			<Option target="Compiler"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.cpp">
+			<Option target="Compiler"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.h">
+			<Option target="Compiler"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/Visitor.h">
+			<Option target="Compiler"/>
+		</Unit>
 		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/ConsoleCtrl.cpp">
 			<Option target="Compiler"/>
 		</Unit>

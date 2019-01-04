@@ -15,8 +15,9 @@ int main(int argc, const char * argv[])
         auto *lexer = new Lexer();
         auto *parser = new Parser(lexer);
         
-        parser->program();
+        auto ast = parser->boolean2();
         // TODO: gen code after build AST
+        int a = 0;
         
     } catch (std::exception &e) {
         

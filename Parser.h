@@ -1,3 +1,5 @@
+#include "AST/AST.h"
+
 class Lexer;
 class Token;
 class Stmt;
@@ -8,10 +10,10 @@ class Access;
 class Id;
 
 class Parser {
-private:
+public:
     Lexer   *lexer;
     Token   *look;
-    // AST *ast;
+    IStatementAST *astRoot;
     Env     *top;
     int     used;
     
@@ -24,15 +26,33 @@ private:
     Stmt    *stmt();
     Type    *type();
     Type    *dims(Type *p);
+
     Expr    *boolean();
+    std::unique_ptr<IExpressionAST> boolean2();
+
     Stmt    *assign();
+
     Expr    *join();
+    std::unique_ptr<IExpressionAST> join2();
+
     Expr    *equality();
+    std::unique_ptr<IExpressionAST> equality2();
+
     Expr    *rel();
+    std::unique_ptr<IExpressionAST> rel2();
+
     Expr    *expr();
+    std::unique_ptr<IExpressionAST> expr2();
+
     Expr    *term();
+    std::unique_ptr<IExpressionAST> term2();
+
     Expr    *unary();
+    std::unique_ptr<IExpressionAST> unary2();
+
     Expr    *factor();
+    std::unique_ptr<IExpressionAST> factor2();
+
     Access  *offset(Id *a);
     
 public:

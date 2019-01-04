@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Compiler.dir/Parser.cpp.o"
   "CMakeFiles/Compiler.dir/Symbol.cpp.o"
   "CMakeFiles/Compiler.dir/Token.cpp.o"
+  "CMakeFiles/Compiler.dir/AST/AST.cpp.o"
+  "CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o"
   "Compiler.pdb"
   "Compiler"
 )

@@ -6,6 +6,8 @@
 #include "Node.h"
 #include "Symbol.h"
 #include "AST/AST.h"
+#include <memory>
+#include <cassert>
 
 Parser::Parser(Lexer *l)
 {
@@ -117,6 +119,8 @@ Stmt *Parser::stmts()
 
 Stmt *Parser::stmt()
 {
+    IExpressionAST *expr;
+
     Expr *x;
     Stmt *s, *s1, *s2;
     Stmt *savedStmt;
@@ -184,7 +188,7 @@ Stmt *Parser::stmt()
             
             return donode;
             
-        case Tag::BREAK:
+        case Tag::BREAK: // no in ast implementation
             match(Tag::BREAK);
             match(';');
         
@@ -215,7 +219,7 @@ Stmt *Parser::assign()
     if (look->tag == '=') {
         move();
         
-        stmt = new Set(id, boolean());
+        stmt = new Set(id, boolean()); // TODO: call boolean2
     }
     else {
         
@@ -434,5 +438,185 @@ Access *Parser::offset(Id *a)
     }
     
     return new Access(a, loc, type);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+std::unique_ptr<IExpressionAST> Parser::boolean2()
+{
+    auto left = join2();
+
+    while (look->tag == Tag::OR)
+    {
+        move();
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), join2(), BinaryExpressionAST::Or));
+    }
+
+    return left;
+}
+
+std::unique_ptr<IExpressionAST> Parser::join2()
+{
+    auto left = equality2();
+
+    while (look->tag == Tag::AND)
+    {
+        move();
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), equality2(), BinaryExpressionAST::And));
+    }
+
+    return left;
+}
+
+std::unique_ptr<IExpressionAST> Parser::equality2()
+{
+    auto left = rel2();
+
+    while (look->tag == Tag::EQ || look->tag == Tag::NE) {
+
+        move();
+        // TODO: implement not equal operator
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), rel2(), BinaryExpressionAST::Equals));
+    }
+
+    return left;
+}
+
+std::unique_ptr<IExpressionAST> Parser::rel2()
+{
+    auto left = expr2();
+
+    switch (look->tag)
+    {
+    case '<':
+    case '>':
+    case Tag::LE:
+    case Tag::GE:
+    {
+        move();
+        // TODO: implement >, <=, >= operators
+        return std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), expr2(), BinaryExpressionAST::Less));
+    }
+    default:
+        return left;
+    }
+}
+
+std::unique_ptr<IExpressionAST> Parser::expr2()
+{
+    auto left = term2();
+
+    while (look->tag == '+' || look->tag == '-')
+    {
+        BinaryExpressionAST::Operator op = look->tag == '+' ? BinaryExpressionAST::Plus : BinaryExpressionAST::Minus;
+        move();
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), term2(), op));
+    }
+
+    return left;
+}
+
+std::unique_ptr<IExpressionAST> Parser::term2()
+{
+    auto left = unary2();
+
+    while (look->tag == '*' || look->tag == '/')
+    {
+        BinaryExpressionAST::Operator op = look->tag == '*' ? BinaryExpressionAST::Mul : BinaryExpressionAST::Div;
+
+        move();
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), unary2(), op));
+    }
+
+    return left;
+}
+
+std::unique_ptr<IExpressionAST> Parser::unary2()
+{
+    if (look->tag == '-')
+    {
+        move();
+        return std::unique_ptr<UnaryAST>(new UnaryAST(unary2(), UnaryAST::Minus));
+    }
+    else if (look->tag == '!')
+    {
+        move();
+        return std::unique_ptr<UnaryAST>(new UnaryAST(unary2(), UnaryAST::Negation));
+    }
+    else
+    {
+        return factor2();
+    }
+}
+
+std::unique_ptr<IExpressionAST> Parser::factor2()
+{
+    switch (look->tag)
+    {
+        case '(':
+        {
+            match('(');
+            auto expr = boolean2();
+            match(')');
+            return expr;
+        }
+        case Tag::NUM:
+        {
+            Num* num = dynamic_cast<Num*>(look);
+            if (!num)
+            {
+                assert(false);
+            }
+
+            move();
+            return std::unique_ptr<LiteralConstantAST>(new LiteralConstantAST(num->value));
+        }
+        case Tag::REAL:
+        {
+            Real* num = dynamic_cast<Real*>(look);
+            if (!num)
+            {
+                assert(false);
+            }
+
+            move();
+            return std::unique_ptr<LiteralConstantAST>(new LiteralConstantAST(num->value));
+        }
+        case Tag::TRUE:
+        {
+            move();
+            return std::unique_ptr<LiteralConstantAST>(new LiteralConstantAST(true));
+        }
+        case Tag::FALSE:
+        {
+            move();
+            return std::unique_ptr<LiteralConstantAST>(new LiteralConstantAST(false));
+        }
+        case Tag::ID:
+        {
+            Id *id = top->get(look);
+            if (id == nullptr) {
+                error("'%s' undeclared", look->toString());
+            }
+
+            move();
+            Expr* tmp = dynamic_cast<Expr*>(id);
+            Word* token = dynamic_cast<Word*>(tmp->op);
+            return std::unique_ptr<IdentifierAST>(new IdentifierAST(token->lexme));
+
+            // TODO: implement array element access
+//            if (look->tag != '[') {
+//                return id;
+//            }
+//            else {
+//                return offset(id);
+//            }
+        }
+        default:
+            error("syntax error at '%s'", look->toString());
+            return nullptr;
+    }
 }
 

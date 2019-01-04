@@ -123,6 +123,60 @@ Compiler/fast:
 	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/build
 .PHONY : Compiler/fast
 
+AST/AST.o: AST/AST.cpp.o
+
+.PHONY : AST/AST.o
+
+# target to build an object file
+AST/AST.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/AST/AST.cpp.o
+.PHONY : AST/AST.cpp.o
+
+AST/AST.i: AST/AST.cpp.i
+
+.PHONY : AST/AST.i
+
+# target to preprocess a source file
+AST/AST.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/AST/AST.cpp.i
+.PHONY : AST/AST.cpp.i
+
+AST/AST.s: AST/AST.cpp.s
+
+.PHONY : AST/AST.s
+
+# target to generate assembly for a file
+AST/AST.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/AST/AST.cpp.s
+.PHONY : AST/AST.cpp.s
+
+AST/ExpressionType.o: AST/ExpressionType.cpp.o
+
+.PHONY : AST/ExpressionType.o
+
+# target to build an object file
+AST/ExpressionType.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o
+.PHONY : AST/ExpressionType.cpp.o
+
+AST/ExpressionType.i: AST/ExpressionType.cpp.i
+
+.PHONY : AST/ExpressionType.i
+
+# target to preprocess a source file
+AST/ExpressionType.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.i
+.PHONY : AST/ExpressionType.cpp.i
+
+AST/ExpressionType.s: AST/ExpressionType.cpp.s
+
+.PHONY : AST/ExpressionType.s
+
+# target to generate assembly for a file
+AST/ExpressionType.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.s
+.PHONY : AST/ExpressionType.cpp.s
+
 ConsoleCtrl.o: ConsoleCtrl.cpp.o
 
 .PHONY : ConsoleCtrl.o
@@ -348,6 +402,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Compiler"
+	@echo "... AST/AST.o"
+	@echo "... AST/AST.i"
+	@echo "... AST/AST.s"
+	@echo "... AST/ExpressionType.o"
+	@echo "... AST/ExpressionType.i"
+	@echo "... AST/ExpressionType.s"
 	@echo "... ConsoleCtrl.o"
 	@echo "... ConsoleCtrl.i"
 	@echo "... ConsoleCtrl.s"

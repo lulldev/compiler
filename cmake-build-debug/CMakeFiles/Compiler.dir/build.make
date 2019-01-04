@@ -161,6 +161,32 @@ CMakeFiles/Compiler.dir/Token.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/Token.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivankalagin/Documents/GitHub/compiler/Token.cpp -o CMakeFiles/Compiler.dir/Token.cpp.s
 
+CMakeFiles/Compiler.dir/AST/AST.cpp.o: CMakeFiles/Compiler.dir/flags.make
+CMakeFiles/Compiler.dir/AST/AST.cpp.o: ../AST/AST.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Compiler.dir/AST/AST.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/AST/AST.cpp.o -c /Users/ivankalagin/Documents/GitHub/compiler/AST/AST.cpp
+
+CMakeFiles/Compiler.dir/AST/AST.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/AST/AST.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivankalagin/Documents/GitHub/compiler/AST/AST.cpp > CMakeFiles/Compiler.dir/AST/AST.cpp.i
+
+CMakeFiles/Compiler.dir/AST/AST.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/AST/AST.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivankalagin/Documents/GitHub/compiler/AST/AST.cpp -o CMakeFiles/Compiler.dir/AST/AST.cpp.s
+
+CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o: CMakeFiles/Compiler.dir/flags.make
+CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o: ../AST/ExpressionType.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o -c /Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.cpp
+
+CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.cpp > CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.i
+
+CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.cpp -o CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.s
+
 # Object files for target Compiler
 Compiler_OBJECTS = \
 "CMakeFiles/Compiler.dir/main.cpp.o" \
@@ -170,7 +196,9 @@ Compiler_OBJECTS = \
 "CMakeFiles/Compiler.dir/Node.cpp.o" \
 "CMakeFiles/Compiler.dir/Parser.cpp.o" \
 "CMakeFiles/Compiler.dir/Symbol.cpp.o" \
-"CMakeFiles/Compiler.dir/Token.cpp.o"
+"CMakeFiles/Compiler.dir/Token.cpp.o" \
+"CMakeFiles/Compiler.dir/AST/AST.cpp.o" \
+"CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o"
 
 # External object files for target Compiler
 Compiler_EXTERNAL_OBJECTS =
@@ -183,9 +211,11 @@ Compiler: CMakeFiles/Compiler.dir/Node.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Parser.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Symbol.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Token.cpp.o
+Compiler: CMakeFiles/Compiler.dir/AST/AST.cpp.o
+Compiler: CMakeFiles/Compiler.dir/AST/ExpressionType.cpp.o
 Compiler: CMakeFiles/Compiler.dir/build.make
 Compiler: CMakeFiles/Compiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Compiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Compiler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Compiler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
