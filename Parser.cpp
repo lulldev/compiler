@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <memory>
+#include <cassert>
+
 #include "Parser.h"
 #include "Lexer.h"
 #include "Error.h"
@@ -6,8 +9,6 @@
 #include "Node.h"
 #include "Symbol.h"
 #include "AST/AST.h"
-#include <memory>
-#include <cassert>
 
 Parser::Parser(Lexer *l)
 {
@@ -131,78 +132,76 @@ Stmt *Parser::stmt()
         case ';':
             move();
             return Stmt::Null;
-            
+
         case Tag::IF:
             match(Tag::IF);
             match('(');
             x = boolean();
             match(')');
             s1 = stmt();
-            
+
             if (look->tag != Tag::ELSE) {
                 return new If(x, s1);
             }
-            
+
             match(Tag::ELSE);
             s2 = stmt();
-            
+
             return new Else(x, s1, s2);
-            
+
         case Tag::WHILE:
-            
+
             whilenode = new While();
             savedStmt = Stmt::Enclosing;
             Stmt::Enclosing = whilenode;
-            
+
             match(Tag::WHILE);
             match('(');
             x = boolean();
             match(')');
-            
+
             s = stmt();
-            
+
             whilenode->init(x, s);
-            
+
             Stmt::Enclosing = savedStmt;
-            
+
             return whilenode;
-            
+
         case Tag::DO:
-            
+
             donode = new Do();
             savedStmt = Stmt::Enclosing;
             Stmt::Enclosing = donode;
-            
+
             match(Tag::DO);
             s1 = stmt();
             match(Tag::WHILE);
-            
+
             match('(');
             x = boolean();
             match(')');
             match(';');
-            
+
             donode->init(x, s1);
-            
+
             Stmt::Enclosing = savedStmt;
-            
+
             return donode;
-            
+
         case Tag::BREAK: // no in ast implementation
             match(Tag::BREAK);
             match(';');
-        
+
             return new Break();
-            
+
         case '{':
             return block();
-            
+
         default:
-            
+
             return assign();
-            
     }
-    
 }
 
 Stmt *Parser::assign()
@@ -618,5 +617,104 @@ std::unique_ptr<IExpressionAST> Parser::factor2()
             error("syntax error at '%s'", look->toString());
             return nullptr;
     }
+}
+
+std::unique_ptr<IExpressionAST> Parser::stmt2()
+{
+    IExpressionAST *expr;
+
+    Expr *x;
+    Stmt *s, *s1, *s2;
+    Stmt *savedStmt;
+    While *whilenode;
+    Do *donode;
+
+    switch (look->tag) {
+        case ';':
+            move();
+            // return Stmt::Null;
+            return nullptr;
+        case Tag::IF:
+        {
+            match(Tag::IF);
+            match('(');
+            auto expr = boolean2();
+            match(')');
+            auto s1 = stmt2();
+
+            if (look->tag != Tag::ELSE) {
+                // return new If(x, s1);
+                return std::unique_ptr<IfStatementAST>(new IfStatementAST(std::move(expr), s1));
+            }
+
+            match(Tag::ELSE);
+            auto s2 = stmt();
+            // return new Else(x, s1, s2);
+            SetElseClause(s2);
+            return std::unique_ptr<IfStatementAST>(new IfStatementAST(std::move(expr), s1, s2));
+
+        }
+        case Tag::WHILE:
+        {
+            // whilenode = new While();
+            // savedStmt = Stmt::Enclosing;
+            // Stmt::Enclosing = whilenode;
+            //
+            // match(Tag::WHILE);
+            // match('(');
+            // x = boolean();
+            // match(')');
+            //
+            // s = stmt();
+            //
+            // whilenode->init(x, s);
+            //
+            // Stmt::Enclosing = savedStmt;
+            //
+            // return whilenode;
+            match(Tag::WHILE);
+            match('(');
+            auto expr = boolean2();
+            match(')');
+            auto stmt = stmt2();
+            return std::unique_ptr<WhileStatementAST>(new WhileStatementAST(std::move(expr), stmt));
+
+        }
+//        case Tag::DO:
+//        {
+//            donode = new Do();
+//            savedStmt = Stmt::Enclosing;
+//            Stmt::Enclosing = donode;
+//
+//            match(Tag::DO);
+//            s1 = stmt();
+//            match(Tag::WHILE);
+//
+//            match('(');
+//            x = boolean();
+//            match(')');
+//            match(';');
+//
+//            donode->init(x, s1);
+//
+//            Stmt::Enclosing = savedStmt;
+//
+//            return donode;
+//        }
+
+//        case Tag::BREAK: // no in ast implementation
+//            match(Tag::BREAK);
+//            match(';');
+//
+//            return new Break();
+
+        case '{':
+            return block2();
+
+        default:
+            return assign();
+
+    }
+
 }
 

@@ -1,14 +1,15 @@
 #pragma once
-#include "Visitor.h"
-#include "ExpressionType.h"
 
 #include <memory>
 #include <string>
 #include <vector>
 #include <boost/variant.hpp>
-//#include <map>
+#include <map>
 #include <unordered_map>
 #include <unordered_set>
+
+#include "Visitor.h"
+#include "ExpressionType.h"
 
 class IExpressionAST
 {

@@ -23,7 +23,10 @@ public:
     Stmt    *block();
     void    decls();
     Stmt    *stmts();
+
     Stmt    *stmt();
+    std::unique_ptr<IExpressionAST> stmt2();
+
     Type    *type();
     Type    *dims(Type *p);
 
