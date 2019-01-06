@@ -7,10 +7,6 @@
 #IncludeRegexTransform: 
 
 /Users/ivankalagin/Documents/GitHub/compiler/AST/AST.h
-Visitor.h
-/Users/ivankalagin/Documents/GitHub/compiler/AST/Visitor.h
-ExpressionType.h
-/Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.h
 memory
 -
 string
@@ -19,10 +15,16 @@ vector
 -
 boost/variant.hpp
 -
+map
+-
 unordered_map
 -
 unordered_set
 -
+Visitor.h
+/Users/ivankalagin/Documents/GitHub/compiler/AST/Visitor.h
+ExpressionType.h
+/Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.h
 
 /Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.h
 string
@@ -57,6 +59,10 @@ Token.h
 /Users/ivankalagin/Documents/GitHub/compiler/Parser.cpp
 stdio.h
 -
+memory
+-
+cassert
+-
 Parser.h
 /Users/ivankalagin/Documents/GitHub/compiler/Parser.h
 Lexer.h
@@ -71,10 +77,6 @@ Symbol.h
 /Users/ivankalagin/Documents/GitHub/compiler/Symbol.h
 AST/AST.h
 /Users/ivankalagin/Documents/GitHub/compiler/AST/AST.h
-memory
--
-cassert
--
 
 /Users/ivankalagin/Documents/GitHub/compiler/Parser.h
 AST/AST.h

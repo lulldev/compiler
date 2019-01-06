@@ -47,12 +47,7 @@ Type::Type(const char *s, int tag, int w)
 
 bool Type::numric(Type *p)
 {
-    if (p == Type::Int || p == Type::Char || p == Type::Float) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return p == Type::Int || p == Type::Char || p == Type::Float;
 }
 
 Type *Type::max(Type *p1, Type *p2)

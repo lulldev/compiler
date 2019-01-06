@@ -25,7 +25,7 @@ public:
     Stmt    *stmts();
 
     Stmt    *stmt();
-    std::unique_ptr<IExpressionAST> stmt2();
+    std::unique_ptr<IStatementAST> stmt2();
 
     Type    *type();
     Type    *dims(Type *p);
