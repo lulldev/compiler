@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <memory>
 #include <cassert>
+#include <iostream>
 
 #include "Parser.h"
 #include "Lexer.h"
@@ -720,6 +721,16 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
             }
             match('}');
             return composite;
+        }
+        case Tag::BASIC:
+        {
+            match(Tag::BASIC);
+            Word* token = dynamic_cast<Word*>(look);
+            assert(token);
+            move();
+            match(';');
+            auto identifier = std::unique_ptr<IdentifierAST>(new IdentifierAST(token->lexme));
+            return std::unique_ptr<VariableDeclarationAST>(new VariableDeclarationAST(std::move(identifier), ExpressionType::Int));
         }
         default:
         {
