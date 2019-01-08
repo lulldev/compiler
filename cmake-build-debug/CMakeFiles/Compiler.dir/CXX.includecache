@@ -97,8 +97,6 @@ Error.h
 /Users/ivankalagin/Documents/GitHub/compiler/Node.h
 
 /Users/ivankalagin/Documents/GitHub/compiler/Parser.cpp
-stdio.h
--
 memory
 -
 cassert
@@ -203,16 +201,12 @@ Parser.h
 /Users/ivankalagin/Documents/GitHub/compiler/Parser.h
 Lexer.h
 /Users/ivankalagin/Documents/GitHub/compiler/Lexer.h
-Error.h
-/Users/ivankalagin/Documents/GitHub/compiler/Error.h
 ConsoleCtrl.h
 /Users/ivankalagin/Documents/GitHub/compiler/ConsoleCtrl.h
 codegen/CodegenContext.h
 /Users/ivankalagin/Documents/GitHub/compiler/codegen/CodegenContext.h
 codegen/CodegenVisitor.h
 /Users/ivankalagin/Documents/GitHub/compiler/codegen/CodegenVisitor.h
-memory
--
 
 /usr/local/Cellar/llvm/7.0.0_1/include/llvm-c/DataTypes.h
 cmath

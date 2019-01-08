@@ -45,7 +45,6 @@ CMakeFiles/Compiler.dir/main.cpp.o: ../AST/AST.h
 CMakeFiles/Compiler.dir/main.cpp.o: ../AST/ExpressionType.h
 CMakeFiles/Compiler.dir/main.cpp.o: ../AST/Visitor.h
 CMakeFiles/Compiler.dir/main.cpp.o: ../ConsoleCtrl.h
-CMakeFiles/Compiler.dir/main.cpp.o: ../Error.h
 CMakeFiles/Compiler.dir/main.cpp.o: ../Lexer.h
 CMakeFiles/Compiler.dir/main.cpp.o: ../Parser.h
 CMakeFiles/Compiler.dir/main.cpp.o: ../Token.h

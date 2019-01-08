@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <memory>
 #include <cassert>
 #include <iostream>
@@ -11,11 +10,11 @@
 #include "Symbol.h"
 #include "AST/AST.h"
 
+
 Parser::Parser(Lexer *l)
 {
     top = nullptr;
     used = 0;
-    
     this->lexer = l;
     move();
 }
@@ -35,56 +34,56 @@ void Parser::match(int t)
     }
 }
 
-void Parser::program()
-{
-    Stmt *s = block();
-    int begin = s->newlabel();
-    int after = s->newlabel();
-    
-    s->emitlabel(begin);
-    s->gen(begin, after);
-    s->emitlabel(after);
-    // return ast;
-}
+//void Parser::program()
+//{
+//    Stmt *s = block();
+//    int begin = s->newlabel();
+//    int after = s->newlabel();
+//
+//    s->emitlabel(begin);
+//    s->gen(begin, after);
+//    s->emitlabel(after);
+//    // return ast;
+//}
 
-Stmt *Parser::block()
-{
-    match('{');
-    
-    Env *savedEnv = top;
-    
-    top = new Env(*top);
-    
-    decls();
-    
-    Stmt *s = stmts();
-    
-    match('}');
-    
-    top = savedEnv;
-    
-    return s;
-}
+//Stmt *Parser::block()
+//{
+//    match('{');
+//
+//    Env *savedEnv = top;
+//
+//    top = new Env(*top);
+//
+//    decls();
+//
+//    Stmt *s = stmts();
+//
+//    match('}');
+//
+//    top = savedEnv;
+//
+//    return s;
+//}
 
-void Parser::decls()
-{
-    while (look->tag == Tag::BASIC) {
-        
-        Type *p = type();
-        Token *tok = look;
-        match(Tag::ID);
-        match(';');
-        
-        Id *id = new Id((Word *)tok, p, used);
-        top->put(tok, id);
-        
-        used = used + p->width;
-    }
-}
+//void Parser::decls()
+//{
+//    while (look->tag == Tag::BASIC) {
+//
+//        Type *p = type();
+//        Token *tok = look;
+//        match(Tag::ID);
+//        match(';');
+//
+//        auto *id = new Id((Word *)tok, p, used);
+//        top->put(tok, id);
+//
+//        used = used + p->width;
+//    }
+//}
 
 Type *Parser::type()
 {
-    Type *p = (Type *) look;
+    auto *p = (Type *) look;
     match(Tag::BASIC);
     
     if (look->tag != '[') {
@@ -109,306 +108,39 @@ Type *Parser::dims(Type *p)
     return new Array(((Num *)tok)->value, p);
 }
 
-Stmt *Parser::stmts()
-{
-    if (look->tag == '}') {
-        return Stmt::Null;
-    }
-    else {
-        return new Seq(stmt(), stmts());
-    }
-}
 
-Stmt *Parser::stmt()
-{
-    IExpressionAST *expr;
+//
+//Stmt *Parser::assign()
+//{
+//    Stmt *stmt;
+//    Token *t = look;
+//
+//    match(Tag::ID);
+//    Id *id = top->get(t);
+//    if (id == nullptr) {
+//        error("'%s' undeclared", t->toString());
+//    }
+//
+//    if (look->tag == '=') {
+//        move();
+//
+//        stmt = new Set(id, boolean2()); // TODO: call boolean2
+//    }
+//    else {
+//
+//        Access *x = offset(id);
+//
+//        match('=');
+//
+//        stmt = new SetElem(x, boolean());
+//    }
+//
+//    match(';');
+//
+//    return stmt;
+//}
 
-    Expr *x;
-    Stmt *s, *s1, *s2;
-    Stmt *savedStmt;
-    While *whilenode;
-    Do *donode;
-    
-    switch (look->tag) {
-        case ';':
-            move();
-            return Stmt::Null;
-
-        case Tag::IF:
-            match(Tag::IF);
-            match('(');
-            x = boolean();
-            match(')');
-            s1 = stmt();
-
-            if (look->tag != Tag::ELSE) {
-                return new If(x, s1);
-            }
-
-            match(Tag::ELSE);
-            s2 = stmt();
-
-            return new Else(x, s1, s2);
-
-        case Tag::WHILE:
-
-            whilenode = new While();
-            savedStmt = Stmt::Enclosing;
-            Stmt::Enclosing = whilenode;
-
-            match(Tag::WHILE);
-            match('(');
-            x = boolean();
-            match(')');
-
-            s = stmt();
-
-            whilenode->init(x, s);
-
-            Stmt::Enclosing = savedStmt;
-
-            return whilenode;
-
-        case Tag::DO:
-
-            donode = new Do();
-            savedStmt = Stmt::Enclosing;
-            Stmt::Enclosing = donode;
-
-            match(Tag::DO);
-            s1 = stmt();
-            match(Tag::WHILE);
-
-            match('(');
-            x = boolean();
-            match(')');
-            match(';');
-
-            donode->init(x, s1);
-
-            Stmt::Enclosing = savedStmt;
-
-            return donode;
-
-        case Tag::BREAK: // no in ast implementation
-            match(Tag::BREAK);
-            match(';');
-
-            return new Break();
-
-        case '{':
-            return block();
-
-        default:
-
-            return assign();
-    }
-}
-
-Stmt *Parser::assign()
-{
-    Stmt *stmt;
-    Token *t = look;
-    
-    match(Tag::ID);
-    Id *id = top->get(t);
-    if (id == nullptr) {
-        error("'%s' undeclared", t->toString());
-    }
-    
-    if (look->tag == '=') {
-        move();
-        
-        stmt = new Set(id, boolean()); // TODO: call boolean2
-    }
-    else {
-        
-        Access *x = offset(id);
-        
-        match('=');
-        
-        stmt = new SetElem(x, boolean());
-    }
-    
-    match(';');
-    
-    return stmt;
-}
-
-Expr *Parser::boolean()
-{
-    Expr *x = join();
-    
-    while (look->tag == Tag::OR) {
-        
-        Token *tok = look;
-        move();
-        
-        x = new Or(tok, x, join());
-        
-    }
-    
-    return x;
-}
-
-Expr *Parser::join()
-{
-    Expr *x = equality();
-    
-    while (look->tag == Tag::AND) {
-        
-        Token *tok = look;
-        move();
-        
-        x = new And(tok, x, equality());
-        
-    }
-    
-    return x;
-}
-
-Expr *Parser::equality()
-{
-    Expr *x = rel();
-    
-    while (look->tag == Tag::EQ || look->tag == Tag::NE) {
-        
-        Token *tok = look;
-        move();
-        
-        x = new Rel(tok, x, rel());
-    }
-    
-    return x;
-}
-
-Expr *Parser::rel()
-{
-    Expr *x = expr();
-    
-    switch (look->tag) {
-        case '<':
-        case '>':
-        case Tag::LE:
-        case Tag::GE:
-        {
-            Token *tok = look;
-            move();
-            
-            return new Rel(tok, x, expr());
-        }
-            
-        default:
-            return x;
-    }
-}
-
-Expr *Parser::expr()
-{
-    Expr *x = term();
-    
-    while (look->tag == '+' || look->tag == '-') {
-        Token *tok = look;
-        move();
-        
-        x = new Arith(tok, x, term());
-    }
-    
-    return x;
-}
-
-Expr *Parser::term()
-{
-    Expr *x = unary();
-    
-    while (look->tag == '*' || look->tag == '/') {
-        Token *tok = look;
-        move();
-        
-        x = new Arith(tok, x, unary());
-    }
-    
-    return x;
-}
-
-Expr *Parser::unary()
-{
-    if (look->tag == '-') {
-        move();
-        
-        return new Unary(Word::Minus, unary());
-    }
-    else if (look->tag == '!') {
-        Token *tok = look;
-        move();
-        
-        return new Not(tok, unary());
-    }
-    else {
-        return factor();
-    }
-}
-
-Expr *Parser::factor()
-{
-    Expr *x = nullptr;
-    
-    switch (look->tag) {
-        case '(':
-            match('(');
-            x = boolean();
-            match(')');
-            
-            return x;
-            
-        case Tag::NUM:
-            x = new Constant(look, Type::Int);
-            move();
-            
-            return x;
-            
-        case Tag::REAL:
-            x = new Constant(look, Type::Float);
-            move();
-            
-            return x;
-            
-        case Tag::TRUE:
-            x = Constant::True;
-            move();
-            
-            return x;
-            
-        case Tag::FALSE:
-            x = Constant::False;
-            move();
-            
-            return x;
-            
-        case Tag::ID:
-        {
-            Id *id = top->get(look);
-            if (id == nullptr) {
-                error("'%s' undeclared", look->toString());
-            }
-            
-            move();
-            
-            if (look->tag != '[') {
-                return id;
-            }
-            else {
-                return offset(id);
-            }
-        }
-            
-        default:
-            error("syntax error at '%s'", look->toString());
-            return x;
-    }
-}
-
-Access *Parser::offset(Id *a)
+/*Access *Parser::offset(Id *a)
 {
     Expr *i, *w;
     Expr *t1, *t2;
@@ -438,55 +170,55 @@ Access *Parser::offset(Id *a)
     }
     
     return new Access(a, loc, type);
-}
+}*/
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-std::unique_ptr<IExpressionAST> Parser::boolean2()
+std::unique_ptr<IExpressionAST> Parser::boolean()
 {
-    auto left = join2();
+    auto left = join();
 
     while (look->tag == Tag::OR)
     {
         move();
-        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), join2(), BinaryExpressionAST::Or));
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), join(), BinaryExpressionAST::Or));
     }
 
     return left;
 }
 
-std::unique_ptr<IExpressionAST> Parser::join2()
+std::unique_ptr<IExpressionAST> Parser::join()
 {
-    auto left = equality2();
+    auto left = equality();
 
     while (look->tag == Tag::AND)
     {
         move();
-        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), equality2(), BinaryExpressionAST::And));
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), equality(), BinaryExpressionAST::And));
     }
 
     return left;
 }
 
-std::unique_ptr<IExpressionAST> Parser::equality2()
+std::unique_ptr<IExpressionAST> Parser::equality()
 {
-    auto left = rel2();
+    auto left = rel();
 
     while (look->tag == Tag::EQ || look->tag == Tag::NE) {
 
         move();
         // TODO: implement not equal operator
-        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), rel2(), BinaryExpressionAST::Equals));
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), rel(), BinaryExpressionAST::Equals));
     }
 
     return left;
 }
 
-std::unique_ptr<IExpressionAST> Parser::rel2()
+std::unique_ptr<IExpressionAST> Parser::rel()
 {
-    auto left = expr2();
+    auto left = expr();
 
     switch (look->tag)
     {
@@ -497,74 +229,74 @@ std::unique_ptr<IExpressionAST> Parser::rel2()
     {
         move();
         // TODO: implement >, <=, >= operators
-        return std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), expr2(), BinaryExpressionAST::Less));
+        return std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), expr(), BinaryExpressionAST::Less));
     }
     default:
         return left;
     }
 }
 
-std::unique_ptr<IExpressionAST> Parser::expr2()
+std::unique_ptr<IExpressionAST> Parser::expr()
 {
-    auto left = term2();
+    auto left = term();
 
     while (look->tag == '+' || look->tag == '-')
     {
         BinaryExpressionAST::Operator op = look->tag == '+' ? BinaryExpressionAST::Plus : BinaryExpressionAST::Minus;
         move();
-        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), term2(), op));
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), term(), op));
     }
 
     return left;
 }
 
-std::unique_ptr<IExpressionAST> Parser::term2()
+std::unique_ptr<IExpressionAST> Parser::term()
 {
-    auto left = unary2();
+    auto left = unary();
 
     while (look->tag == '*' || look->tag == '/')
     {
         BinaryExpressionAST::Operator op = look->tag == '*' ? BinaryExpressionAST::Mul : BinaryExpressionAST::Div;
 
         move();
-        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), unary2(), op));
+        left = std::unique_ptr<BinaryExpressionAST>(new BinaryExpressionAST(std::move(left), unary(), op));
     }
 
     return left;
 }
 
-std::unique_ptr<IExpressionAST> Parser::unary2()
+std::unique_ptr<IExpressionAST> Parser::unary()
 {
     if (look->tag == '-')
     {
         move();
-        return std::unique_ptr<UnaryAST>(new UnaryAST(unary2(), UnaryAST::Minus));
+        return std::unique_ptr<UnaryAST>(new UnaryAST(unary(), UnaryAST::Minus));
     }
     else if (look->tag == '!')
     {
         move();
-        return std::unique_ptr<UnaryAST>(new UnaryAST(unary2(), UnaryAST::Negation));
+        return std::unique_ptr<UnaryAST>(new UnaryAST(unary(), UnaryAST::Negation));
     }
     else
     {
-        return factor2();
+        return factor();
     }
 }
 
-std::unique_ptr<IExpressionAST> Parser::factor2()
+std::unique_ptr<IExpressionAST> Parser::factor()
 {
     switch (look->tag)
     {
         case '(':
         {
             match('(');
-            auto expr = boolean2();
+            auto expr = boolean();
             match(')');
             return expr;
         }
         case Tag::NUM:
         {
-            Num* num = dynamic_cast<Num*>(look);
+            auto * num = dynamic_cast<Num*>(look);
             if (!num)
             {
                 assert(false);
@@ -575,7 +307,7 @@ std::unique_ptr<IExpressionAST> Parser::factor2()
         }
         case Tag::REAL:
         {
-            Real* num = dynamic_cast<Real*>(look);
+            auto * num = dynamic_cast<Real*>(look);
             if (!num)
             {
                 assert(false);
@@ -601,7 +333,7 @@ std::unique_ptr<IExpressionAST> Parser::factor2()
                 // error("'%s' undeclared", look->toString());
             }
 
-            Word* token = dynamic_cast<Word*>(look);
+            auto * token = dynamic_cast<Word*>(look);
             assert(token);
 
             move();
@@ -614,7 +346,7 @@ std::unique_ptr<IExpressionAST> Parser::factor2()
             else
             {
                 match('[');
-                auto index = expr2();
+                auto index = expr();
                 match(']');
                 return std::unique_ptr<ArrayElementAccessAST>(new ArrayElementAccessAST(identifier->GetName(), std::move(index)));
             }
@@ -625,9 +357,9 @@ std::unique_ptr<IExpressionAST> Parser::factor2()
     }
 }
 
-std::unique_ptr<IStatementAST> Parser::stmt2()
+std::unique_ptr<IStatementAST> Parser::stmt()
 {
-    IExpressionAST *expr;
+//    IExpressionAST *expr;
 
     Expr *x;
     Stmt *s, *s1, *s2;
@@ -640,11 +372,11 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
         {
             match(Tag::IF);
             match('(');
-            auto expr = boolean2();
+            auto parsedExpr = boolean();
             match(')');
-            auto thenBody = stmt2();
+            auto thenBody = stmt();
 
-            auto conditionStatement = std::unique_ptr<IfStatementAST>(new IfStatementAST(std::move(expr), std::move(thenBody)));
+            auto conditionStatement = std::unique_ptr<IfStatementAST>(new IfStatementAST(std::move(parsedExpr), std::move(thenBody)));
 
             if (look->tag != Tag::ELSE)
             {
@@ -653,71 +385,25 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
 
             match(Tag::ELSE);
 
-            conditionStatement->SetElseClause(stmt2());
+            conditionStatement->SetElseClause(stmt());
             return conditionStatement;
         }
         case Tag::WHILE:
         {
-            // whilenode = new While();
-            // savedStmt = Stmt::Enclosing;
-            // Stmt::Enclosing = whilenode;
-            //
-            // match(Tag::WHILE);
-            // match('(');
-            // x = boolean();
-            // match(')');
-            //
-            // s = stmt();
-            //
-            // whilenode->init(x, s);
-            //
-            // Stmt::Enclosing = savedStmt;
-            //
-            // return whilenode;
-
             match(Tag::WHILE);
             match('(');
-            auto expr = boolean2();
+            auto parsedExpr = boolean();
             match(')');
-            auto stmt = stmt2();
-            return std::unique_ptr<WhileStatementAST>(new WhileStatementAST(std::move(expr), std::move(stmt)));
+            return std::unique_ptr<WhileStatementAST>(new WhileStatementAST(std::move(parsedExpr), std::move(stmt())));
 
         }
-//        case Tag::DO:
-//        {
-//            donode = new Do();
-//            savedStmt = Stmt::Enclosing;
-//            Stmt::Enclosing = donode;
-//
-//            match(Tag::DO);
-//            s1 = stmt();
-//            match(Tag::WHILE);
-//
-//            match('(');
-//            x = boolean();
-//            match(')');
-//            match(';');
-//
-//            donode->init(x, s1);
-//
-//            Stmt::Enclosing = savedStmt;
-//
-//            return donode;
-//        }
-
-//        case Tag::BREAK: // no in ast implementation
-//            match(Tag::BREAK);
-//            match(';');
-//
-//            return new Break();
-
         case '{':
         {
             match('{');
             auto composite = std::unique_ptr<CompositeStatementAST>(new CompositeStatementAST);
             while (look->tag != '}')
             {
-                composite->AddStatement(stmt2());
+                composite->AddStatement(stmt());
             }
             match('}');
             return composite;
@@ -725,7 +411,7 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
         case Tag::BASIC:
         {
             match(Tag::BASIC);
-            Word* token = dynamic_cast<Word*>(look);
+            auto * token = dynamic_cast<Word*>(look);
             assert(token);
             move();
             match(';');
@@ -746,7 +432,7 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
                 error("'%s' undeclared", t->toString());
             }
 
-            Word* token = dynamic_cast<Word*>(t);
+            auto * token = dynamic_cast<Word*>(t);
             assert(token);
 
             auto identifier = std::unique_ptr<IdentifierAST>(new IdentifierAST(token->lexme));
@@ -754,17 +440,19 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
             if (look->tag == '=')
             {
                 match('=');
-                auto assign = std::unique_ptr<AssignStatementAST>(new AssignStatementAST(std::move(identifier), boolean2()));
+                auto assign = std::unique_ptr<AssignStatementAST>(new AssignStatementAST(std::move(identifier), boolean()));
                 match(';');
                 return assign;
             }
             else if (look->tag == '[')
             {
                 match('[');
-                auto index = boolean2();
+                auto index = boolean();
                 match(']');
                 match('=');
-                auto arrayElementAssign = std::unique_ptr<ArrayElementAssignAST>(new ArrayElementAssignAST(identifier->GetName(), std::move(index), expr2()));
+                auto arrayElementAssign = std::unique_ptr<ArrayElementAssignAST>(
+                        new ArrayElementAssignAST(identifier->GetName(), std::move(index), expr())
+                );
                 match(';');
             }
 

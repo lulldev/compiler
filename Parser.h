@@ -11,54 +11,31 @@ class Id;
 
 class Parser {
 public:
+    explicit Parser(Lexer *l);
+
     Lexer   *lexer;
     Token   *look;
-    IStatementAST *astRoot;
+//    IStatementAST *astRoot;
     Env     *top;
     int     used;
     
     void    move();
     void    match(int t);
-
-    Stmt    *block();
-    void    decls();
-    Stmt    *stmts();
-
-    Stmt    *stmt();
-    std::unique_ptr<IStatementAST> stmt2();
-
+//    void    decls();
     Type    *type();
     Type    *dims(Type *p);
+//    Stmt    *block();
+//    Stmt    *assign();
+//    Access  *offset(Id *a);
+//    void program();
 
-    Expr    *boolean();
-    std::unique_ptr<IExpressionAST> boolean2();
-
-    Stmt    *assign();
-
-    Expr    *join();
-    std::unique_ptr<IExpressionAST> join2();
-
-    Expr    *equality();
-    std::unique_ptr<IExpressionAST> equality2();
-
-    Expr    *rel();
-    std::unique_ptr<IExpressionAST> rel2();
-
-    Expr    *expr();
-    std::unique_ptr<IExpressionAST> expr2();
-
-    Expr    *term();
-    std::unique_ptr<IExpressionAST> term2();
-
-    Expr    *unary();
-    std::unique_ptr<IExpressionAST> unary2();
-
-    Expr    *factor();
-    std::unique_ptr<IExpressionAST> factor2();
-
-    Access  *offset(Id *a);
-    
-public:
-    Parser(Lexer *l);
-    void program();
+    std::unique_ptr<IStatementAST> stmt();
+    std::unique_ptr<IExpressionAST> boolean();
+    std::unique_ptr<IExpressionAST> join();
+    std::unique_ptr<IExpressionAST> equality();
+    std::unique_ptr<IExpressionAST> rel();
+    std::unique_ptr<IExpressionAST> expr();
+    std::unique_ptr<IExpressionAST> term();
+    std::unique_ptr<IExpressionAST> unary();
+    std::unique_ptr<IExpressionAST> factor();
 };
