@@ -14,14 +14,14 @@ void Env::put(Token *t, Id *i)
 
 Id *Env::get(Token *t)
 {
-    for (Env *e = this; e != NULL; e = e->prev) {
+    for (Env *e = this; nullptr != e; e = e->prev) {
         
         Id *found = e->table[t];
-        if (found != NULL) {
+        if (found != nullptr) {
             return found;
         }
     }
     
-    return NULL;
+    return nullptr;
 }
 
