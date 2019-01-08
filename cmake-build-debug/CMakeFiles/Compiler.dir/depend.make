@@ -17,18 +17,12 @@ CMakeFiles/Compiler.dir/Lexer.cpp.o: ../Lexer.cpp
 CMakeFiles/Compiler.dir/Lexer.cpp.o: ../Lexer.h
 CMakeFiles/Compiler.dir/Lexer.cpp.o: ../Token.h
 
-CMakeFiles/Compiler.dir/Node.cpp.o: ../Error.h
-CMakeFiles/Compiler.dir/Node.cpp.o: ../Node.cpp
-CMakeFiles/Compiler.dir/Node.cpp.o: ../Node.h
-CMakeFiles/Compiler.dir/Node.cpp.o: ../Token.h
-
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../AST/AST.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../AST/ExpressionType.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../AST/Visitor.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../ConsoleCtrl.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../Error.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../Lexer.h
-CMakeFiles/Compiler.dir/Parser.cpp.o: ../Node.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../Parser.cpp
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../Parser.h
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../Symbol.h

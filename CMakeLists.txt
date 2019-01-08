@@ -4,7 +4,7 @@ project(Compiler)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES main.cpp ConsoleCtrl.h ConsoleCtrl.cpp Error.h Error.cpp
-        Lexer.h Lexer.cpp Node.h Node.cpp Parser.h Parser.cpp Symbol.h Symbol.cpp Token.h Token.cpp)
+        Lexer.h Lexer.cpp Parser.h Parser.cpp Symbol.h Symbol.cpp Token.h Token.cpp)
 
 add_subdirectory(AST)
 add_subdirectory(codegen)

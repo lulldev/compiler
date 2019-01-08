@@ -82,20 +82,6 @@ fstream
 Token.h
 /Users/ivankalagin/Documents/GitHub/compiler/Token.h
 
-/Users/ivankalagin/Documents/GitHub/compiler/Node.cpp
-typeinfo
--
-stdio.h
--
-Node.h
-/Users/ivankalagin/Documents/GitHub/compiler/Node.h
-Token.h
-/Users/ivankalagin/Documents/GitHub/compiler/Token.h
-Error.h
-/Users/ivankalagin/Documents/GitHub/compiler/Error.h
-
-/Users/ivankalagin/Documents/GitHub/compiler/Node.h
-
 /Users/ivankalagin/Documents/GitHub/compiler/Parser.cpp
 memory
 -
@@ -111,8 +97,6 @@ Error.h
 /Users/ivankalagin/Documents/GitHub/compiler/Error.h
 ConsoleCtrl.h
 /Users/ivankalagin/Documents/GitHub/compiler/ConsoleCtrl.h
-Node.h
-/Users/ivankalagin/Documents/GitHub/compiler/Node.h
 Symbol.h
 /Users/ivankalagin/Documents/GitHub/compiler/Symbol.h
 AST/AST.h

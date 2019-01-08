@@ -6,7 +6,6 @@
 #include "Lexer.h"
 #include "Error.h"
 #include "ConsoleCtrl.h"
-#include "Node.h"
 #include "Symbol.h"
 #include "AST/AST.h"
 
@@ -85,7 +84,7 @@ Type *Parser::type()
 {
     auto *p = (Type *) look;
     match(Tag::BASIC);
-    
+
     if (look->tag != '[') {
         return p;
     }
@@ -100,11 +99,11 @@ Type *Parser::dims(Type *p)
     Token *tok = look;
     match(Tag::NUM);
     match(']');
-    
+
     if (look->tag == '[') {
         p = dims(p);
     }
-    
+
     return new Array(((Num *)tok)->value, p);
 }
 
@@ -364,8 +363,6 @@ std::unique_ptr<IStatementAST> Parser::stmt()
     Expr *x;
     Stmt *s, *s1, *s2;
     Stmt *savedStmt;
-    While *whilenode;
-    Do *donode;
 
     switch (look->tag) {
         case Tag::IF:

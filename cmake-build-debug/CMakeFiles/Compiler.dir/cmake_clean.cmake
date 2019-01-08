@@ -3,7 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Compiler.dir/ConsoleCtrl.cpp.o"
   "CMakeFiles/Compiler.dir/Error.cpp.o"
   "CMakeFiles/Compiler.dir/Lexer.cpp.o"
-  "CMakeFiles/Compiler.dir/Node.cpp.o"
   "CMakeFiles/Compiler.dir/Parser.cpp.o"
   "CMakeFiles/Compiler.dir/Symbol.cpp.o"
   "CMakeFiles/Compiler.dir/Token.cpp.o"

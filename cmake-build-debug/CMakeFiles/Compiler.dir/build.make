@@ -153,33 +153,9 @@ CMakeFiles/Compiler.dir/Lexer.cpp.o.provides: CMakeFiles/Compiler.dir/Lexer.cpp.
 CMakeFiles/Compiler.dir/Lexer.cpp.o.provides.build: CMakeFiles/Compiler.dir/Lexer.cpp.o
 
 
-CMakeFiles/Compiler.dir/Node.cpp.o: CMakeFiles/Compiler.dir/flags.make
-CMakeFiles/Compiler.dir/Node.cpp.o: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Compiler.dir/Node.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/Node.cpp.o -c /Users/ivankalagin/Documents/GitHub/compiler/Node.cpp
-
-CMakeFiles/Compiler.dir/Node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/Node.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/ivankalagin/Documents/GitHub/compiler/Node.cpp > CMakeFiles/Compiler.dir/Node.cpp.i
-
-CMakeFiles/Compiler.dir/Node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/Node.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/ivankalagin/Documents/GitHub/compiler/Node.cpp -o CMakeFiles/Compiler.dir/Node.cpp.s
-
-CMakeFiles/Compiler.dir/Node.cpp.o.requires:
-
-.PHONY : CMakeFiles/Compiler.dir/Node.cpp.o.requires
-
-CMakeFiles/Compiler.dir/Node.cpp.o.provides: CMakeFiles/Compiler.dir/Node.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Node.cpp.o.provides.build
-.PHONY : CMakeFiles/Compiler.dir/Node.cpp.o.provides
-
-CMakeFiles/Compiler.dir/Node.cpp.o.provides.build: CMakeFiles/Compiler.dir/Node.cpp.o
-
-
 CMakeFiles/Compiler.dir/Parser.cpp.o: CMakeFiles/Compiler.dir/flags.make
 CMakeFiles/Compiler.dir/Parser.cpp.o: ../Parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Compiler.dir/Parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Compiler.dir/Parser.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/Parser.cpp.o -c /Users/ivankalagin/Documents/GitHub/compiler/Parser.cpp
 
 CMakeFiles/Compiler.dir/Parser.cpp.i: cmake_force
@@ -203,7 +179,7 @@ CMakeFiles/Compiler.dir/Parser.cpp.o.provides.build: CMakeFiles/Compiler.dir/Par
 
 CMakeFiles/Compiler.dir/Symbol.cpp.o: CMakeFiles/Compiler.dir/flags.make
 CMakeFiles/Compiler.dir/Symbol.cpp.o: ../Symbol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Compiler.dir/Symbol.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Compiler.dir/Symbol.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/Symbol.cpp.o -c /Users/ivankalagin/Documents/GitHub/compiler/Symbol.cpp
 
 CMakeFiles/Compiler.dir/Symbol.cpp.i: cmake_force
@@ -227,7 +203,7 @@ CMakeFiles/Compiler.dir/Symbol.cpp.o.provides.build: CMakeFiles/Compiler.dir/Sym
 
 CMakeFiles/Compiler.dir/Token.cpp.o: CMakeFiles/Compiler.dir/flags.make
 CMakeFiles/Compiler.dir/Token.cpp.o: ../Token.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Compiler.dir/Token.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Compiler.dir/Token.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/Token.cpp.o -c /Users/ivankalagin/Documents/GitHub/compiler/Token.cpp
 
 CMakeFiles/Compiler.dir/Token.cpp.i: cmake_force
@@ -255,7 +231,6 @@ Compiler_OBJECTS = \
 "CMakeFiles/Compiler.dir/ConsoleCtrl.cpp.o" \
 "CMakeFiles/Compiler.dir/Error.cpp.o" \
 "CMakeFiles/Compiler.dir/Lexer.cpp.o" \
-"CMakeFiles/Compiler.dir/Node.cpp.o" \
 "CMakeFiles/Compiler.dir/Parser.cpp.o" \
 "CMakeFiles/Compiler.dir/Symbol.cpp.o" \
 "CMakeFiles/Compiler.dir/Token.cpp.o"
@@ -267,7 +242,6 @@ Compiler: CMakeFiles/Compiler.dir/main.cpp.o
 Compiler: CMakeFiles/Compiler.dir/ConsoleCtrl.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Error.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Lexer.cpp.o
-Compiler: CMakeFiles/Compiler.dir/Node.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Parser.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Symbol.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Token.cpp.o
@@ -285,7 +259,7 @@ Compiler: /usr/local/Cellar/llvm/7.0.0_1/lib/libLLVMBinaryFormat.a
 Compiler: /usr/local/Cellar/llvm/7.0.0_1/lib/libLLVMSupport.a
 Compiler: /usr/local/Cellar/llvm/7.0.0_1/lib/libLLVMDemangle.a
 Compiler: CMakeFiles/Compiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Compiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Compiler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Compiler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -297,7 +271,6 @@ CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/main.cpp.o.requires
 CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/ConsoleCtrl.cpp.o.requires
 CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/Error.cpp.o.requires
 CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/Lexer.cpp.o.requires
-CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/Node.cpp.o.requires
 CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/Parser.cpp.o.requires
 CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/Symbol.cpp.o.requires
 CMakeFiles/Compiler.dir/requires: CMakeFiles/Compiler.dir/Token.cpp.o.requires

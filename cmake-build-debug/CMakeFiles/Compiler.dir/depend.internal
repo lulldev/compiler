@@ -17,11 +17,6 @@ CMakeFiles/Compiler.dir/Lexer.cpp.o
  /Users/ivankalagin/Documents/GitHub/compiler/Lexer.cpp
  /Users/ivankalagin/Documents/GitHub/compiler/Lexer.h
  /Users/ivankalagin/Documents/GitHub/compiler/Token.h
-CMakeFiles/Compiler.dir/Node.cpp.o
- /Users/ivankalagin/Documents/GitHub/compiler/Error.h
- /Users/ivankalagin/Documents/GitHub/compiler/Node.cpp
- /Users/ivankalagin/Documents/GitHub/compiler/Node.h
- /Users/ivankalagin/Documents/GitHub/compiler/Token.h
 CMakeFiles/Compiler.dir/Parser.cpp.o
  /Users/ivankalagin/Documents/GitHub/compiler/AST/AST.h
  /Users/ivankalagin/Documents/GitHub/compiler/AST/ExpressionType.h
@@ -29,7 +24,6 @@ CMakeFiles/Compiler.dir/Parser.cpp.o
  /Users/ivankalagin/Documents/GitHub/compiler/ConsoleCtrl.h
  /Users/ivankalagin/Documents/GitHub/compiler/Error.h
  /Users/ivankalagin/Documents/GitHub/compiler/Lexer.h
- /Users/ivankalagin/Documents/GitHub/compiler/Node.h
  /Users/ivankalagin/Documents/GitHub/compiler/Parser.cpp
  /Users/ivankalagin/Documents/GitHub/compiler/Parser.h
  /Users/ivankalagin/Documents/GitHub/compiler/Symbol.h

@@ -219,12 +219,6 @@
 		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/Lexer.h">
 			<Option target="Compiler"/>
 		</Unit>
-		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/Node.cpp">
-			<Option target="Compiler"/>
-		</Unit>
-		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/Node.h">
-			<Option target="Compiler"/>
-		</Unit>
 		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/Parser.cpp">
 			<Option target="Compiler"/>
 		</Unit>
