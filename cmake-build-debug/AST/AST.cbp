@@ -5,7 +5,7 @@
 		<Option title="AST"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\AST\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\AST\;CMake Files\codegen\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\Cellar\;CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\;CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\;CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\;CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/AST"/>
@@ -82,6 +82,60 @@
 		</Unit>
 		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\AST\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/AST/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\AST\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/codegen/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\codegen\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/codegen/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\codegen\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMExports.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMExports-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVM-Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMExports.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMExports-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVM-Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMExports.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVMExports-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/Users/ivankalagin/Documents/GitHub/compiler/../../../../../usr/local/Cellar/llvm/7.0.0_1/lib/cmake/llvm/LLVM-Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\Cellar\llvm\7.0.0_1\lib\cmake\llvm\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

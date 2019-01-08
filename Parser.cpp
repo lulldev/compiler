@@ -743,7 +743,7 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
 
             if (id == nullptr)
             {
-                // error("'%s' undeclared", t->toString());
+                error("'%s' undeclared", t->toString());
             }
 
             Word* token = dynamic_cast<Word*>(t);
@@ -753,7 +753,7 @@ std::unique_ptr<IStatementAST> Parser::stmt2()
 
             if (look->tag == '=')
             {
-                move();
+                match('=');
                 auto assign = std::unique_ptr<AssignStatementAST>(new AssignStatementAST(std::move(identifier), boolean2()));
                 match(';');
                 return assign;
