@@ -115,8 +115,6 @@ map
 -
 
 /Users/ivankalagin/Documents/GitHub/compiler/Token.cpp
-stdio.h
--
 Token.h
 /Users/ivankalagin/Documents/GitHub/compiler/Token.h
 Error.h
