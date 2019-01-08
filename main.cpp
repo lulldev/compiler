@@ -4,6 +4,8 @@
 #include "Lexer.h"
 #include "Error.h"
 #include "ConsoleCtrl.h"
+#include "codegen/CodegenContext.h"
+#include "codegen/CodegenVisitor.h"
 
 int main(int argc, const char * argv[])
 {
@@ -14,10 +16,14 @@ int main(int argc, const char * argv[])
 
         auto *lexer = new Lexer();
         auto *parser = new Parser(lexer);
-        
-        auto ast = parser->stmt2();
-        // TODO: gen code after build AST
-        int a = 0;
+        CodegenContext context;
+        Codegen codegen(context);
+
+        if (auto ast = parser->stmt2())
+        {
+            codegen.Generate(*ast);
+            context.GetUtils().GetModule().dump();
+        }
         
     } catch (std::exception &e) {
         

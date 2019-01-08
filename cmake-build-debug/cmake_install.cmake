@@ -27,9 +27,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Is this installation the result of a crosscompile?
-if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/AST/cmake_install.cmake")
+  include("/Users/ivankalagin/Documents/GitHub/compiler/cmake-build-debug/codegen/cmake_install.cmake")
+
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
